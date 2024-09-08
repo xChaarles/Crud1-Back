@@ -20,14 +20,21 @@ public class CustomerController {
         return customerService.save(customer);
     }
 
+    //localhost:8080
     @GetMapping
     public List<Customer> findALL(){
         return customerService.findALL();
     }
 
+    //localhost:8080/1
     @GetMapping("/{id}")
     public Customer findById (@PathVariable Integer id){
         return customerService.findById(id);
     }
 
+    //localhost/8080/1
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Integer id){
+        customerService.deleteById(id);
+    }
 }
