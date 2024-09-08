@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+//https://localhost:8080/api/customers
+@RequestMapping("/api/customers")
 public class CustomerController {
 
     private final CustomerService customerService;
@@ -14,30 +16,31 @@ public class CustomerController {
     public CustomerController(CustomerService customerService) {
             this.customerService = customerService;
     }
-    //localhost:8080/create
-    @PostMapping("/create")
+    //https://localhost:8080/api/customers
+    @PostMapping
     public Customer save(@RequestBody Customer customer){
         return customerService.save(customer);
     }
 
-    //localhost:8080
+    //https://localhost:8080/api/customers
     @GetMapping
     public List<Customer> findALL(){
         return customerService.findALL();
     }
 
-    //localhost:8080/1
+    //https://localhost:8080/api/customers/1
     @GetMapping("/{id}")
     public Customer findById (@PathVariable Integer id){
         return customerService.findById(id);
     }
 
-    //localhost/8080/1
+    //https://localhost/8080/api/customers/1
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Integer id){
         customerService.deleteById(id);
     }
 
+    //https://localhost:8080/api/customers
     @PutMapping
     public Customer updateCustomer(@RequestBody Customer customer){
         Customer customerDb = customerService.findById(customer.getId());
