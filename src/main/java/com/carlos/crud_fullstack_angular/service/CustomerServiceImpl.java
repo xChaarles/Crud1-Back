@@ -3,6 +3,7 @@ package com.carlos.crud_fullstack_angular.service;
 import com.carlos.crud_fullstack_angular.entity.Customer;
 import com.carlos.crud_fullstack_angular.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
 
@@ -37,6 +38,7 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public Customer update(Customer customer) {
-        return null;
+        return customerRepository.save(customer);
     }
+
 }
