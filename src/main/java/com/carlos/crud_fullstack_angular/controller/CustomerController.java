@@ -2,10 +2,7 @@ package com.carlos.crud_fullstack_angular.controller;
 
 import com.carlos.crud_fullstack_angular.entity.Customer;
 import com.carlos.crud_fullstack_angular.service.CustomerService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +23,11 @@ public class CustomerController {
     @GetMapping
     public List<Customer> findALL(){
         return customerService.findALL();
+    }
+
+    @GetMapping("/{id}")
+    public Customer findById (@PathVariable Integer id){
+        return customerService.findById(id);
     }
 
 }
