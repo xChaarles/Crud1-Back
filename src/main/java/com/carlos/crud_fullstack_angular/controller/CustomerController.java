@@ -2,6 +2,7 @@ package com.carlos.crud_fullstack_angular.controller;
 
 import com.carlos.crud_fullstack_angular.entity.Customer;
 import com.carlos.crud_fullstack_angular.service.CustomerService;
+import org.hibernate.boot.jaxb.Origin;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @RestController
 //https://localhost:8080/api/customers
 @RequestMapping("/api/customers")
+@CrossOrigin( origins="http://localhost:4200/")
 public class CustomerController {
 
     private final CustomerService customerService;
